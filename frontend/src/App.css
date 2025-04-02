@@ -1,59 +1,80 @@
-/* Apply to entire page */
+/* Global Styles */
 body {
-  font-family: 'Trebuchet MS', sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  padding: 20px;
+  animation: gradientAnimation 10s infinite; /* Apply the gradient animation */
+  background: linear-gradient(45deg, #b7b7f3, #f39c12, #e67e22); /* Initial gradient */
+  background-size: 300% 300%; /* Allow the gradient to animate */
 }
 
-/* Light Theme */
-.light-mode {
-  background-color: #e2e9e0;
-  color: black;
+/* Keyframes for gradient animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-/* Dark Theme */
-.dark-mode {
-  background-color: #222;
-  color: white;
-}
-
-/* Center Content */
+/* Container for the Student Recording System */
 .container {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  max-width: 400px;
+  margin: auto; /* Center the container horizontally */
+  margin-top: 140px; /* Optional: adds space from the top */
+  background: #ffffff; /* Changed to white for contrast */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgb(255, 255, 255); /* Softer shadow */
+  text-align: center; /* Center-aligns text within the container */
 }
 
-/* Button Styling */
+/* Header Styles */
+h1 {
+  text-align: center;
+  color: #333; /* Changed to dark gray for better contrast */
+}
+
+/* Input Field Styles */
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Button Styles */
 button {
-  background-color: #dea764;
-  color: white;
-  padding: 10px 20px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #f39c12; /* Orange color */
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
-  margin: 10px;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #385f89;
-}
-.delete-btn {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  margin-left: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s;
+  background-color: #e67e22; /* Darker orange */
 }
 
-.delete-btn:hover {
-  background-color: rgb(136, 38, 38);
+/* Student List Styles */
+.student-list {
+  margin-top: 20px;
+  padding: 10px;
+  background: white; /* Changed to white for contrast */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #333;
 }

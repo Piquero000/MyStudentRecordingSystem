@@ -6,7 +6,6 @@ import "./App.css";
 
 const App = () => {
   const [students, setStudents] = useState([]);
-  const [darkMode, setDarkMode] = useState(false); // State for theme
 
   // Fetch students on page load
   useEffect(() => {
@@ -42,22 +41,9 @@ const App = () => {
     }
   };
 
-  // Toggle Theme Function
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-  };
-
-  // Apply theme to body background
-  useEffect(() => {
-    document.body.className = darkMode ? "dark-mode" : "light-mode";
-  }, [darkMode]);
-
   return (
     <div className="container">
-      <h1>Student Recording System</h1>
-      <button onClick={toggleTheme}>
-        {darkMode ? "☀️" : "🌙"}
-      </button>
+      <h1 className="title">Student Recording System</h1>
       <StudentForm addStudent={addStudent} />
       <StudentList students={students} deleteStudent={deleteStudent} />
     </div>

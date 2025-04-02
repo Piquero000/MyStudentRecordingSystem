@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap is imported
+import "../App.css"; // Updated import path
 
 const StudentForm = ({ addStudent }) => {
   const [name, setName] = useState("");
   const [course, setCourse] = useState("");
 
-  const courseOptions = ["BSIT", "BSCS", "BSBA", "BSA", "BSED", "BSN", "BSEE"];
+  const courseOptions = 
+  ["Bachelor of Science in Information Technology", 
+    "Bachelor of Science in Computer Science", 
+    "Bachelor of Science in Business Administration",
+    " Bachelor of Science in Agriculture",
+     "Bachelor of Science in Education", 
+     "Bachelor of Science in Nursing", 
+     "Bachelor of Science in Electrical Engineering"];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,13 +24,11 @@ const StudentForm = ({ addStudent }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 bg-dark text-light rounded shadow w-50 mx-auto">
-
-      {/* Student Name Input */}
-      <div className="mb-3">
+    <form onSubmit={handleSubmit} className="form-container">
+      <div className="form-group">
         <input
           type="text"
-          className="form-control"
+          className="form-input"
           placeholder="Enter Student Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -31,8 +36,7 @@ const StudentForm = ({ addStudent }) => {
         />
       </div>
 
-      {/* Course Dropdown */}
-      <div className="mb-3">
+      <div className="form-group">
         <select className="form-select" value={course} onChange={(e) => setCourse(e.target.value)} required>
           <option value="" disabled>Select a Course</option>
           {courseOptions.map((option) => (
@@ -41,8 +45,7 @@ const StudentForm = ({ addStudent }) => {
         </select>
       </div>
 
-      {/* Submit Button */}
-      <button type="submit" className="btn btn-warning w-50 fw-bold">
+      <button type="submit" className="btn-submit">
         Add Student
       </button>
     </form>
